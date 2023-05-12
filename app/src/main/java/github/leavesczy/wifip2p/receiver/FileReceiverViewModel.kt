@@ -43,7 +43,8 @@ class FileReceiverViewModel(context: Application) :
         }
         job = viewModelScope.launch(context = Dispatchers.IO) {
             _viewState.emit(value = ViewState.Idle)
-
+            // 在指定端口一直堵塞监听客户端的连接请求，获取待传输的文件信息模型 FileTransfer ，之后就
+            // 进行实际的数据传输
             var serverSocket: ServerSocket? = null
             var clientInputStream: InputStream? = null
             var objectInputStream: ObjectInputStream? = null

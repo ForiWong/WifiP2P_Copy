@@ -43,6 +43,7 @@ class FileSenderViewModel(context: Application) :
 
     private var job: Job? = null
 
+    //发送文件
     fun send(ipAddress: String, fileUri: Uri) {
         if (job != null) {
             return

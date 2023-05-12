@@ -176,6 +176,7 @@ class FileReceiverActivity : BaseActivity() {
     private fun createGroup() {
         lifecycleScope.launch {
             removeGroupIfNeed()
+            //服务器端要主动创建群组，并等待客户端的连接
             wifiP2pManager.createGroup(wifiP2pChannel, object : WifiP2pManager.ActionListener {
                 override fun onSuccess() {
                     val log = "createGroup onSuccess"

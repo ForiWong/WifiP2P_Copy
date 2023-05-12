@@ -94,6 +94,7 @@ class FileSenderActivity : BaseActivity() {
             wifiP2pEnabled = enabled
         }
 
+        //获取到组连接信息，回调
         override fun onConnectionInfoAvailable(wifiP2pInfo: WifiP2pInfo) {
             dismissLoadingDialog()
             wifiP2pDeviceList.clear()
@@ -177,6 +178,7 @@ class FileSenderActivity : BaseActivity() {
             showLoadingDialog(message = "正在搜索附近设备")
             wifiP2pDeviceList.clear()
             deviceAdapter.notifyDataSetChanged()
+            //搜索周边设备
             wifiP2pManager.discoverPeers(wifiP2pChannel, object : WifiP2pManager.ActionListener {
                 override fun onSuccess() {
                     showToast("discoverPeers Success")
@@ -215,6 +217,7 @@ class FileSenderActivity : BaseActivity() {
         wifiP2pChannel = mWifiP2pManager.initialize(this, mainLooper, directActionListener)
         broadcastReceiver =
             DirectBroadcastReceiver(mWifiP2pManager, wifiP2pChannel, directActionListener)
+        //首先，需要先注册P2P广播，以便获取周边设备信息以及连接状态
         registerReceiver(broadcastReceiver, DirectBroadcastReceiver.getIntentFilter())
     }
 
@@ -259,6 +262,7 @@ class FileSenderActivity : BaseActivity() {
         }
     }
 
+    //连接
     @SuppressLint("MissingPermission")
     private fun connect(wifiP2pDevice: WifiP2pDevice) {
         val wifiP2pConfig = WifiP2pConfig()
