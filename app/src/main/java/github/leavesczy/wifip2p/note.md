@@ -50,3 +50,57 @@ WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION：此设备的WiFi状态更�
 
 客户端流程：
 ![img_1.png](img_1.png)
+
+
+---------------------------------------------
+# 1.WiFi热点数据传输--Socket通信
+首先，描述下功能，两个手机，其中一个手机开热点，另外一个手机连接热点，2个手机间数据通信（不需要流量）。
+简述一下原理：开热点的手机相当于路由器，连接的手机作为客户端，获取路由器的IP建立Socket 连接，开始双方通信。
+
+# 2.wifi direct P2P 直连
+WFA定义的P2P协议文档全名为“Wi-Fi Peer-to-Peer（P2P） Technical Specification”。
+
+P2P技术使得多个Wi-Fi设备在没有AP的情况下也能构成一个网络（P2P Network，也被称之为P2P Group）并相互通信。
+AP(无线访问接入点(WirelessAccessPoint))，热点。
+
+Wi-Fi P2P技术是Wi-Fi Display（也称之为Miracast，详情请参考作者的一篇博文http://blog.csdn.net/innost/article/details/8474683）的基础。
+在Miracast应用场景中，一台支持P2P的智能手机可直接连接上一台支持P2P的智能电视，智能手机随后将自己的屏幕，或者
+媒体资源传送给电视机去显示或播放。显然，借助P2P技术，Wi-Fi设备之间的直接相连将极大拓展Wi-Fi技术的使用场景。
+
+# 3.WLAN 与 WiFi
+WLAN 的全称为 Wireless Local Area Networks中文意思为无线局域网络，是一种数据传输系统。它是利用射频技术进行数据传输，
+以此来实现通信和共享资源的网络体系。
+
+目前WLAN通用的标准IEEE是802.11系列标准使用的是 5GHz 频段以及 2.4GHz，在 IEEE802.11a 时使用 5GHZ 频段下支持的最大速度
+为54Mbps;在 IEEE 802.11b 和IEEE 802.11g 时使用 2.4GHz 下支持的最大速度分别为 11Mbps.54Mbpso
+
+WiFi 的全称为 Wireless Fidelity，中文意思为无线保真，是一个创建于 IEEE 802.11 标准的无线局域网技术，这种技术改善了基
+于 IEEE 802.11标准的无线网络产品之间的互通性。
+
+WLAN包括了WiFi和WAPI两项技术。
+WLAN 的电波覆盖范围较广，适用于区域范围更广的场所，比如学校、机场等公共区域;
+wiFi 的覆盖范围较小，适用于办公室、家里等空间较小的区域。
+
+# 4.WLAN 有几种拓扑结构？
+WLAN 的拓扑结构分为两种，一种是终端之间直接互连的 ad-hoc 模式，另一种是通过 AP 连接有线网络的基础设施模式。
+
+ad-hoc 模式，全称 ad-hoc mode ，即 IEEE 802.11 无线网络的 BSS ，在两台 STA 之间直接进行无线通信，而组成的网络，
+也叫做点对点的网络模式。通常是笔记本电脑和打印机进行无线连接或多台游戏机进行联机对战时使用。终端一般配置了无线
+网卡。这个模式下，终端是不能连接到互联网上的。
+![img_2.png](img_2.png)
+
+基础设施模式，全称 Infrastructure Mode ，是指 802.11 无线网络的 BSS 形式组网，通常是通过 AP 连接到互联网时使用。
+在这个模式下，除了有 STA 外，还需要有 AP 才能连接到互联网。
+![img_3.png](img_3.png)
+
+# 5.其他
+外接USB 4G WIFI 蓝牙 NFC
+
+外接USB扫描枪
+条码扫描枪即插即用，读取的数据会经过扫描枪处理转换成符合主机软件要求的数据格式，不用安装任何驱动，使用就像
+电脑配件:键盘，鼠标以及U盘一样简单。条码扫描枪主要有三种接口：键盘接口，USB接口，RS232串口。
+
+Android连接打印机：WIFI
+
+投屏的应用场景
+
